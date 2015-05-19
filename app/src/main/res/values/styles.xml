@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.2" parent="@style/Theme.AppCompat">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@drawable/ab_solid_1</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.2</item>
+    </style>
+
+    <style name="ActionBar.Solid.2" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@drawable/ab_solid_1</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_1</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_1</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MATERIAL LOAN</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">Departamento de Recursos Materiales y Servicios</string>
+    <string name="profe">ENCARGADO: L.A Alberto Garcia Uriostegui</string>
+    <string name="Nuevo_registro">Nuevo Registro</string>
+    <string name="Consulta">Consulta</string>
+    <string name="title_activity_splash_screen">Material Loan</string>
+    <string name="title_activity_acercade">Acercade</string>
+
+    <string name="Clave_registro">CLAVE DE REGISTRO: </string>
+    <string name="Fecha">FECHA: </string>
+    <string name="dd_mm_aaaa">mm/dd/aaaa</string>
+    <string name="seleccionar">Seleccionar Fecha</string>
+    <string name="Nom_Alumno">NOMBRE DEL SOLICITANTE: </string>
+    <string name="Carrera">CARRERA O ÁREA SOLICITANTE: </string>
+    <string name="Descripcion">DESCRIPCION: </string>
+    <string name="Recibido">RECIBIDO</string>
+    <string name="Entregado">ENTREGADO</string>
+
+    <string name="Registrar">REGISTRAR</string>
+    <string name="Buscar">BUSCAR</string>
+    <string name="Actualizar">EDITAR</string>
+    <string name="Eliminar">ELIMINAR</string>
+    <string name="Limpiar">LIMPIAR</string>
+
+    <string name="title_activity_listaregistros">LISTA DEE REGISTROS</string>
+    <string name="title_activity_operations">operations</string>
+</resources>

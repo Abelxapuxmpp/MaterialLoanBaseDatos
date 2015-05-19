@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/r1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clave_prestamo"
+            android:id="@+id/clave_prestamo"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:id="@+id/fecha"
+            android:textColor="#000000"            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/clave_prestamo"
+            android:layout_toEndOf="@+id/clave_prestamo"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre_sol"
+            android:id="@+id/nombre_sol"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_alignBottom="@+id/fecha"
+            android:layout_toRightOf="@+id/fecha"
+            android:layout_toEndOf="@+id/fecha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Area_sol"
+            android:id="@+id/area_sol"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/nombre_sol"
+            android:layout_toEndOf="@+id/nombre_sol"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripcion"
+            android:id="@+id/descripcion"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recibido"
+            android:id="@+id/recibido"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_below="@+id/descripcion"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entregado"
+            android:id="@+id/entregado"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_alignTop="@+id/recibido"
+            android:layout_alignRight="@+id/fecha"
+            android:layout_alignEnd="@+id/fecha" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

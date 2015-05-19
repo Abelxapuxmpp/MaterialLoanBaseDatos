@@ -1,0 +1,274 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.abel.materialloanbasedatos.operations"
+    android:background="#2a97f4"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/linear1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/Clave_registro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/txtclave"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/edtclave"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:inputType="number"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/Fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:id="@+id/txtfecha"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:id="@+id/edtfecha"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:hint="@string/dd_mm_aaaa"
+            android:textColorHint="@android:color/darker_gray"
+            android:textStyle="italic"/>
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="@string/seleccionar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btnseleccionar"
+            android:onClick="calendario"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/Nom_Alumno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:id="@+id/txtnom_alumno"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:id="@+id/edtnombre"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/Carrera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:id="@+id/txtcarrera"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:id="@+id/edtcarrera"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView android:text="@string/Descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:id="@+id/txtdescripcion"/>
+
+        <EditText
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/edtdescripcion"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <CheckBox
+            android:text="@string/Recibido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:id="@+id/rdrecibido"/>
+
+        <EditText
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ck1"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:inputType="text"
+            android:visibility="invisible"/>
+
+        <CheckBox
+            android:text="@string/Entregado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/rdrentregado"/>
+
+        <EditText
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ck2"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:inputType="text"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Registrar"
+            android:onClick="registrar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btnregistrar"/>
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Buscar"
+            android:onClick="buscar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btnbuscar"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Actualizar"
+            android:onClick="actualizar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btnactualizar"/>
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Eliminar"
+            android:onClick="eliminar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btneliminar"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Limpiar"
+            android:onClick="limpiar"
+            android:background="#ff0d47a0"
+            android:id="@+id/btnlimpiar"/>
+
+    </LinearLayout>
+</LinearLayout>
+
+</ScrollView>
