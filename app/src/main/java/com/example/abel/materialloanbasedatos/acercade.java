@@ -10,18 +10,24 @@ import android.widget.ExpandableListView;
 
 public class acercade extends ActionBarActivity {
 
+    //Arreglo de grupos de los datos de los desarrolladores
     SparseArray<GrupoDeItems> grupos = new SparseArray<GrupoDeItems>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acercade);
+
+        //Llamada al metodo cearDatos
         crearDatos();
+
+        //Enlazar variable con elemento grafico
         ExpandableListView listView = (ExpandableListView) findViewById(R.id.listViewexp);
         adaptador adapter = new adaptador(this, grupos);
         listView.setAdapter(adapter);
     }
 
+    //Metodod crearDatos para agregar los elementos a la lista expandible con la informacion de los desarrolladores
     public void crearDatos() {
 
         GrupoDeItems grupo0 = new GrupoDeItems("Alberto");
@@ -37,8 +43,6 @@ public class acercade extends ActionBarActivity {
         grupo1.children.add("Telefono: 7671073774");
         grupo1.children.add("Facebook: abelpioquinto.maybelking");
         grupos.append(1, grupo1);
-
-
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends ActionBarActivity  implements View.OnClickListener {
 
+    //Variables de los elementos de la actividad
     Button Operaciones, Consultas;
     private int cont=0,i=4;
     private ImageButton logo;
@@ -21,12 +22,15 @@ public class MainActivity extends ActionBarActivity  implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Enlazar variables con el elemento grafico correspondiente
         Operaciones = (Button) findViewById(R.id.btnver);
         Consultas = (Button) findViewById(R.id.bntcons);
 
+        //escucha de eventos onclick de cada boton de la actividad
         Operaciones.setOnClickListener(this);
         Consultas.setOnClickListener(this);
-        //enlazamos con el xml
+
+        //enlazamos la imagen de logo con la actividad de desarrolladores
         ImageButton logo= (ImageButton) findViewById(R.id.imageView);
         logo.setOnClickListener(new View.OnClickListener(){
     //hacemos que escuche el click y ejecute el metodo update
@@ -66,11 +70,12 @@ public class MainActivity extends ActionBarActivity  implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            //Al dar clic en boton ver pasara a la ventana operaciones
         case R.id.btnver:
         Intent intento = new Intent(MainActivity.this, operations.class);
         startActivity(intento);
         break;
-
+        //Al dar clic en boton consulta pasara a la ventana consultas
         case  R.id.bntcons:
         Intent intento2 = new Intent(MainActivity.this, listaregistros.class);
         startActivity(intento2);
@@ -79,21 +84,17 @@ public class MainActivity extends ActionBarActivity  implements View.OnClickList
         }
 
 
-private void update_cont() {
+    //Evento de validar clics en el logo para pasar a la ventana de desarrolladores
+        private void update_cont() {
         cont++;
-
         if(cont>i){
         reiniciar();
         Intent i = new Intent(MainActivity.this, acercade.class);
         startActivity(i);
-
-
+        }
         }
 
-
-        }
-private void reiniciar(){
+        private void reiniciar(){
         this.cont=0;
-
         }
 }

@@ -20,10 +20,13 @@ import java.util.Calendar;
 
 public class operations extends ActionBarActivity {
 
+    //Tipos de variables utilizadas en la actividad
     EditText edt_clave,edtfecha, edt_nombre_sol, edt_area_sol, edtdescripcion, recibido, entregado;
     CheckBox ck_recibido, ck_entregado;
     Button seleccionar, guardar, buscar, editar, eliminar, limpiar;
+    //Variabes para calendario
     int a,m,d;
+    //Variables para respuestas de los chekbox
     String rec, ent;
 
     @Override
@@ -31,6 +34,7 @@ public class operations extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_operations);
 
+        //Enlazar variables con los elementos graficos correspondientes
         edt_clave = (EditText) findViewById(R.id.edtclave);
         edtfecha = (EditText) findViewById(R.id.edtfecha);
         edt_nombre_sol = (EditText) findViewById(R.id.edtnombre);
@@ -49,13 +53,18 @@ public class operations extends ActionBarActivity {
         limpiar = (Button) findViewById(R.id.btnlimpiar);
     }
 
-
+    //Metodo para mostrar calendario al seleccionar boton de calendario el el entorno grafico
     public void calendario (View v) {
+        //Variable del calendario
         Calendar calendario = Calendar.getInstance();
+        //Valor año en variable a
         a = calendario.get(Calendar.YEAR);
+        //Valor mes en variable m
         m = calendario.get(Calendar.MONTH);
+        //Valor dia en variable d
         d = calendario.get(Calendar.DAY_OF_MONTH);
 
+        //Evento clic al seleccionar fecha
         DatePickerDialog.OnDateSetListener mbpd = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -63,6 +72,7 @@ public class operations extends ActionBarActivity {
                 m = monthOfYear;
                 d = dayOfMonth;
                 int uno = 1;
+                //Mostrar fecha seleccionada en un editText
                 edtfecha.setText(""+(m+uno)+"/"+d+"/"+a);
             }
         };
@@ -70,16 +80,20 @@ public class operations extends ActionBarActivity {
         dpd.show();
     }
 
+    //Evento para registrar los datos en tabla de base de datos de la aplicacion
     public void registrar (View v) {
+        //Conexion a la base de datos
         ConexionSQL funcion = new ConexionSQL(this, "prestamos", null, 1);
         SQLiteDatabase BD = funcion.getWritableDatabase();
 
+        //Variables enlazadas a elementos graficos
         String claveprestamo = edt_clave.getText().toString();
         String fecha = edtfecha.getText().toString();
         String nombre = edt_nombre_sol.getText().toString();
         String area = edt_area_sol.getText().toString();
         String descripcion = edtdescripcion.getText().toString();
 
+        //Conjunto de if´s para identificar que chekbox estan seleccionadas y que valor asignar a las variables rec y ent
         if (ck_recibido.isChecked() == true && ck_entregado.isChecked() == true) {
             rec = "SI";
             ent = "SI";
@@ -97,12 +111,14 @@ public class operations extends ActionBarActivity {
             ent = "SI";
         }
 
+        //Comando para verificr si ya esta registrado el registro
         Cursor fila = BD.rawQuery("select fecha, nombre_sol, area_sol, descripcion, recibido, entregado from prestamos where clave_prestamo=" + claveprestamo, null);
         if (fila.getCount() >= 1) {
             Toast.makeText(this, "La clave de prestamos ya se encuentra registrado", Toast.LENGTH_SHORT).show();
         } else {
             ContentValues registro = new ContentValues();
 
+            //Agregar datos a la base de datos
             registro.put("clave_prestamo", claveprestamo);
             registro.put("fecha", fecha);
             registro.put("nombre_sol", nombre);
@@ -114,6 +130,7 @@ public class operations extends ActionBarActivity {
             BD.insert("prestamos", null, registro);
             BD.close();
 
+            //Limpiar los editText y mostrarlos en blanco
             edt_clave.setText("");
             edtfecha.setText("");
             edt_nombre_sol.setText("");
@@ -122,26 +139,32 @@ public class operations extends ActionBarActivity {
             ck_recibido.setChecked(false);
             ck_entregado.setChecked(false);
 
+            //Mensaje de registro exitoso
             Toast.makeText(this,"Se agrego el registro del prestamo",Toast.LENGTH_SHORT).show();
         }
         edt_clave.setFocusable(true);
     }
 
+    //Metodo para realizar consultas
     public void buscar (View v) {
-
+        //Conexion a la base de datos
         ConexionSQL funcion = new ConexionSQL(this, "prestamos", null, 1);
         SQLiteDatabase BD = funcion.getWritableDatabase();
 
+        //Varibla y su elemento grafico
         String claveprestamo = edt_clave.getText().toString();
 
+        //Comando de consulta de registro a la base de datos
         Cursor fila = BD.rawQuery("select fecha, nombre_sol, area_sol, descripcion, recibido, entregado from prestamos where clave_prestamo=" + claveprestamo, null);
         if (fila.moveToFirst()) {
+            //Mostrar resultado de la busqued en elementos graficos
             edtfecha.setText(fila.getString(0));
             edt_nombre_sol.setText(fila.getString(1));
             edt_area_sol.setText(fila.getString(2));
             edtdescripcion.setText(fila.getString(3));
             recibido.setText(fila.getString(4));
             entregado.setText(fila.getString(5));
+            //Identificar el resultado de los campos de los chekbox
             if (recibido.getText().toString().equals("SI") && entregado.getText().toString().equals("SI") ){
                 ck_recibido.setChecked(true);
                 ck_entregado.setChecked(true);
@@ -162,21 +185,26 @@ public class operations extends ActionBarActivity {
                 Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
             }
         } else {
+            //Mensaje de eeror en la consulta
             Toast.makeText(this,"No existe el registro del prestamo",Toast.LENGTH_SHORT).show();
         }
         BD.close();
     }
 
+    //Metodo para actualizar datos
     public void actualizar (View v) {
+        //Conexion a la base de datos
         ConexionSQL funcion = new ConexionSQL(this, "prestamos", null, 1);
         SQLiteDatabase BD = funcion.getWritableDatabase();
 
+        //Variables con elementos graficos
         String claveprestamo = edt_clave.getText().toString();
         String fecha = edtfecha.getText().toString();
         String nombre = edt_nombre_sol.getText().toString();
         String area = edt_area_sol.getText().toString();
         String descripcion = edtdescripcion.getText().toString();
 
+        //Conjunto de if´s ´para validar que chekbox estan seleccionados
         if (ck_recibido.isChecked() == true && ck_entregado.isChecked() == true) {
             rec = "SI";
             ent = "SI";
@@ -196,6 +224,7 @@ public class operations extends ActionBarActivity {
 
         ContentValues registro = new ContentValues();
 
+        //Insertar los datos
         registro.put("clave_prestamo", claveprestamo);
         registro.put("fecha", fecha);
         registro.put("nombre_sol", nombre);
@@ -215,15 +244,20 @@ public class operations extends ActionBarActivity {
         }
     }
 
+    //Metodo para eliminar registro
     public void eliminar (View v) {
+        //Conexion a la base de datos
         ConexionSQL funcion = new ConexionSQL(this, "prestamos", null, 1);
         SQLiteDatabase BD = funcion.getWritableDatabase();
 
+        //Variable enlazad al elemento grafico correspondiente
         String claveprestamo = edt_clave.getText().toString();
 
+        //Comando borrar
         int contador = BD.delete("prestamos", "clave_prestamo="+ claveprestamo, null);
         BD.close();
 
+        //Limpiar los editText
         edt_clave.setText("");
         edtfecha.setText("");
         edt_nombre_sol.setText("");
@@ -240,6 +274,7 @@ public class operations extends ActionBarActivity {
         }
     }
 
+    //Metodo para limpiar los TextView
     public void limpiar (View v) {
         edt_clave.setText("");
         edtfecha.setText("");

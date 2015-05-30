@@ -14,11 +14,12 @@ import java.util.List;
 
 
 public class listaregistros extends ActionBarActivity {
-    //
+
+    //variable dle recycler view
     private RecyclerView recycler;
-    //
+    //variable del adaptador recycler view
     private RecyclerView.Adapter adapter;
-    //
+    //variable del administrador de recycler view
     private RecyclerView.LayoutManager lManager;
 
     @Override
@@ -26,13 +27,15 @@ public class listaregistros extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listaregistros);
 
+        //Arreglo obtenido del modelo material
         List<modelomaterial> items = new ArrayList<>();
 
+        //Establece la conexion con la tabla de la base de datos
         ConexionSQL funcion = new ConexionSQL(this, "prestamos", null, 1);
         SQLiteDatabase BD = funcion.getWritableDatabase();
-
+        //Ejecuta el comando select en mysql
         Cursor fila = BD.rawQuery("select clave_prestamo, fecha, nombre_sol, area_sol, descripcion, recibido, entregado from prestamos", null);
-
+        //El resultado del comando es buscado en cada uno de los registros
         for (fila.moveToFirst(); !fila.isAfterLast(); fila.moveToNext()) {
             items.add(new modelomaterial(fila.getString(0),fila.getString(1),fila.getString(2),fila.getString(3),fila.getString(4),fila.getString(5),fila.getString(6)));
         }

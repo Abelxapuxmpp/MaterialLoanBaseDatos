@@ -5,6 +5,7 @@ package com.example.abel.materialloanbasedatos;
  */
 public class modelomaterial {
 
+    //variables String utilizadas
     private String clave_prestamo;
     private String fecha;
     private String nombre_sol;
@@ -13,6 +14,7 @@ public class modelomaterial {
     private String recibido;
     private String entregado;
 
+    //Metodo constructor modelomaterial
     public modelomaterial(String area_sol, String clave_prestamo, String descripcion, String entregado, String fecha, String nombre_sol, String recibido) {
         this.area_sol = area_sol;
         this.clave_prestamo = clave_prestamo;
@@ -23,6 +25,7 @@ public class modelomaterial {
         this.recibido = recibido;
     }
 
+    //Metodos Getters
     public String getArea_sol() {
         return area_sol;
     }
